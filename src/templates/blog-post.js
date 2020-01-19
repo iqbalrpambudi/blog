@@ -1,16 +1,26 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
+import Disqus from "disqus-react"
 
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
+    const disqusShortname = "myblog"
+    const disqusConfig = {
+      url: this.props.location.href,
+      identifier: post.id,
+      title: post.frontmatter.title,
+    }
+    console.log(disqusConfig)
+    console.log(this.props)
+    const FeaturedImage =
+      post.frontmatter.featuredImage.childImageSharp.sizes.src
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -37,6 +47,8 @@ class BlogPostTemplate extends React.Component {
             >
               {post.frontmatter.date}
             </p>
+
+            <img src={FeaturedImage} />
           </header>
           <section dangerouslySetInnerHTML={{ __html: post.html }} />
           <hr
@@ -75,6 +87,10 @@ class BlogPostTemplate extends React.Component {
             </li>
           </ul>
         </nav>
+        <Disqus.DiscussionEmbed
+          shortname={disqusShortname}
+          config={disqusConfig}
+        />
       </Layout>
     )
   }
@@ -97,6 +113,13 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        featuredImage {
+          childImageSharp {
+            sizes(maxWidth: 980, maxHeight: 512) {
+              src
+            }
+          }
+        }
       }
     }
   }

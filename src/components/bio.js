@@ -11,12 +11,13 @@ import Image from "gatsby-image"
 
 import { rhythm } from "../utils/typography"
 
+// Query
 const Bio = () => {
   const data = useStaticQuery(graphql`
     query BioQuery {
-      avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
+      avatar: file(absolutePath: { regex: "/iqbalss.jpg/" }) {
         childImageSharp {
-          fixed(width: 50, height: 50) {
+          fixed(width: 120, height: 120) {
             ...GatsbyImageSharpFixed
           }
         }
@@ -46,7 +47,7 @@ const Bio = () => {
         style={{
           marginRight: rhythm(1 / 2),
           marginBottom: 0,
-          minWidth: 50,
+          minWidth: 120,
           borderRadius: `100%`,
         }}
         imgStyle={{
@@ -54,8 +55,8 @@ const Bio = () => {
         }}
       />
       <p>
-        Written by <strong>{author}</strong> who lives and works in San
-        Francisco building useful things.
+        Written by <strong>{author}</strong> who lives and study in Yogyakarta
+        building useful things.
         {` `}
         <a href={`https://twitter.com/${social.twitter}`}>
           You should follow him on Twitter

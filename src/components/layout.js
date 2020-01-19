@@ -1,66 +1,68 @@
 import React from "react"
 import { Link } from "gatsby"
-
-import { rhythm, scale } from "../utils/typography"
+import { rhythm } from "../utils/typography"
+import "../style/navbar.css"
 
 class Layout extends React.Component {
   render() {
-    const { location, title, children } = this.props
-    const rootPath = `${__PATH_PREFIX__}/`
+    const { children } = this.props
+    // const rootPath = `${__PATH_PREFIX__}/`
     let header
 
-    if (location.pathname === rootPath) {
-      header = (
-        <h1
-          style={{
-            ...scale(1.5),
-            marginBottom: rhythm(1.5),
-            marginTop: 0,
-          }}
-        >
-          <Link
-            style={{
-              boxShadow: `none`,
-              textDecoration: `none`,
-              color: `inherit`,
-            }}
-            to={`/`}
-          >
-            {title}
+    // if (location.pathname === rootPath) {
+    header = (
+      <div className="ui secondary  menu">
+        <div className="right menu">
+          <Link to={"/"} className="item">
+            Home
           </Link>
-        </h1>
-      )
-    } else {
-      header = (
-        <h3
-          style={{
-            fontFamily: `Montserrat, sans-serif`,
-            marginTop: 0,
-          }}
-        >
-          <Link
-            style={{
-              boxShadow: `none`,
-              textDecoration: `none`,
-              color: `inherit`,
-            }}
-            to={`/`}
-          >
-            {title}
+          <Link to={"/new-beginnings"} className="item">
+            About
           </Link>
-        </h3>
-      )
-    }
+          <Link to={"/"} className="item">
+            Connect
+          </Link>
+        </div>
+      </div>
+    )
+    // } else {
+
+    // <h3
+    //   style={{
+    //     fontFamily: `Montserrat, sans-serif`,
+    //     marginTop: 0,
+    //   }}
+    // >
+    //   <Link
+    //     style={{
+    //       boxShadow: `none`,
+    //       textDecoration: `none`,
+    //       color: `inherit`,
+    //     }}
+    //     to={`/`}
+    //   >
+    //     {title}
+    //   </Link>
+    // </h3>
+    // )
+    // }
     return (
       <div
         style={{
           marginLeft: `auto`,
           marginRight: `auto`,
-          maxWidth: rhythm(24),
-          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+          maxWidth: rhythm(30),
+          padding: `1rem`,
         }}
       >
-        <header>{header}</header>
+        <header
+          style={{
+            marginBottom: `2rem`,
+          }}
+        >
+          {header}
+        </header>
+
         <main>{children}</main>
         <footer>
           © {new Date().getFullYear()}, Built with
