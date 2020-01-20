@@ -1,26 +1,28 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import { rhythm, scale } from "../utils/typography"
+import Image from "gatsby-image"
 import Disqus from "disqus-react"
+import { Link, graphql } from "gatsby"
+import SEO from "../components/seo"
+import Layout from "../components/layout"
+import Bio from "../components/bio"
+import "../style/blogLayout.scss"
 
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
-    const disqusShortname = "myblog"
+    const profile = this.props.data.avatar.childImageSharp.fixed
+    const author = this.props.data.site.siteMetadata.author
+    const FeaturedName = post.frontmatter.featuredImage.name
+    const FeaturedImage =
+      post.frontmatter.featuredImage.childImageSharp.resize.src
+    const disqusShortname = "MyBlog"
     const disqusConfig = {
       url: this.props.location.href,
       identifier: post.id,
       title: post.frontmatter.title,
     }
-    console.log(disqusConfig)
-    console.log(this.props)
-    const FeaturedImage =
-      post.frontmatter.featuredImage.childImageSharp.sizes.src
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -30,47 +32,27 @@ class BlogPostTemplate extends React.Component {
         />
         <article>
           <header>
-            <h1
-              style={{
-                marginTop: rhythm(1),
-                marginBottom: 0,
-              }}
-            >
-              {post.frontmatter.title}
-            </h1>
-            <p
-              style={{
-                ...scale(-1 / 5),
-                display: `block`,
-                marginBottom: rhythm(1),
-              }}
-            >
-              {post.frontmatter.date}
-            </p>
-
-            <img src={FeaturedImage} />
+            <h1>{post.frontmatter.title}</h1>
+            <div className="a">
+              <Image fixed={profile} />
+              <div>
+                <div>
+                  <p>{author}</p>
+                </div>
+                <p>{post.frontmatter.date}</p>
+              </div>
+            </div>
           </header>
+          <img src={FeaturedImage} alt={FeaturedName} />
           <section dangerouslySetInnerHTML={{ __html: post.html }} />
-          <hr
-            style={{
-              marginBottom: rhythm(1),
-            }}
-          />
+          <hr />
           <footer>
             <Bio />
           </footer>
         </article>
 
         <nav>
-          <ul
-            style={{
-              display: `flex`,
-              flexWrap: `wrap`,
-              justifyContent: `space-between`,
-              listStyle: `none`,
-              padding: 0,
-            }}
-          >
+          <ul className="n">
             <li>
               {previous && (
                 <Link to={previous.fields.slug} rel="prev">
@@ -105,6 +87,21 @@ export const pageQuery = graphql`
         title
       }
     }
+    avatar: file(absolutePath: { regex: "/profile.jpg/" }) {
+      childImageSharp {
+        fixed(width: 60, height: 60) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    site {
+      siteMetadata {
+        author
+        social {
+          twitter
+        }
+      }
+    }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       excerpt(pruneLength: 160)
@@ -115,7 +112,7 @@ export const pageQuery = graphql`
         description
         featuredImage {
           childImageSharp {
-            sizes(maxWidth: 980, maxHeight: 512) {
+            resize(width: 912, height: 480) {
               src
             }
           }

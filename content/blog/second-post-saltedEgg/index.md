@@ -1,6 +1,6 @@
 ---
-title: My Second Post!
-date: "2015-05-06T23:46:37.121Z"
+title: Salted Eggs!
+date: "2020-01-06T23:46:37.121Z"
 featuredImage: "./salty_egg.jpg"
 ---
 
