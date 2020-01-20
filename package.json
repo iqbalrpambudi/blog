@@ -1,9 +1,12 @@
 {
-  "name": "iqbal-pambudi-blog",
+  "name": "gatsby-starter-blog",
   "private": true,
-  "description": "This blog built with gatsby",
+  "description": "A starter for a blog powered by Gatsby and Markdown",
   "version": "0.1.0",
-  "author": "Iqbal Pambudi <iqbal.pambudi@gmail.com>",
+  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  },
   "dependencies": {
     "disqus-react": "^1.0.7",
     "gatsby": "^2.18.12",
