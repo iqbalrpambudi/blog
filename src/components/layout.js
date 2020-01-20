@@ -16,10 +16,10 @@ class Layout extends React.Component {
           <Link to={"/"} className="item">
             Home
           </Link>
-          <Link to={"/new-beginnings"} className="item">
+          <Link to={"/about"} className="item">
             About
           </Link>
-          <Link to={"/"} className="item">
+          <Link to={"/connect"} className="item">
             Connect
           </Link>
         </div>

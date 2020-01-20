@@ -13,20 +13,19 @@ class BlogIndex extends React.Component {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
     const posts = data.allMarkdownRemark.edges
-    console.log(this.props)
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="All posts" />
         <Bio />
-        <Grid columns={2}>
+        <Grid>
           <Grid.Row>
-            {posts.map(({ node }) => {
+            {posts.map(({ node }, index) => {
               const title = node.frontmatter.title || node.fields.slug
               const thumbnail =
                 node.frontmatter.featuredImage.childImageSharp.sizes.src
 
               return (
-                <Grid.Column>
+                <Grid.Column mobile={16} computer={8} key={index}>
                   <Card
                     style={{
                       marginBottom: `2.5rem`,
