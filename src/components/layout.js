@@ -6,15 +6,14 @@ import "../style/navbar.css"
 class Layout extends React.Component {
   render() {
     const { children } = this.props
-    // const rootPath = `${__PATH_PREFIX__}/`
-    let header
-
-    // if (location.pathname === rootPath) {
-    header = (
+    const header = (
       <div className="ui secondary  menu">
         <div className="right menu">
           <Link to={"/"} className="item">
             Home
+          </Link>
+          <Link to={"/blog"} className="item">
+            Blog
           </Link>
           <Link to={"/about"} className="item">
             About
@@ -25,27 +24,7 @@ class Layout extends React.Component {
         </div>
       </div>
     )
-    // } else {
 
-    // <h3
-    //   style={{
-    //     fontFamily: `Montserrat, sans-serif`,
-    //     marginTop: 0,
-    //   }}
-    // >
-    //   <Link
-    //     style={{
-    //       boxShadow: `none`,
-    //       textDecoration: `none`,
-    //       color: `inherit`,
-    //     }}
-    //     to={`/`}
-    //   >
-    //     {title}
-    //   </Link>
-    // </h3>
-    // )
-    // }
     return (
       <div
         style={{

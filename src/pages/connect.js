@@ -21,18 +21,21 @@ class Connect extends React.Component {
                 <a
                   href="https://instagram.com/iqbalrpambudi"
                   style={{ boxShadow: `none`, marginRight: `1em` }}
+                  title="Instagram"
                 >
                   <Icon color="black" name="instagram" size="big" link />
                 </a>
                 <a
                   href="https://twitter.com/iqbalrpambudi"
                   style={{ boxShadow: `none`, marginRight: `1em` }}
+                  title="Twitter"
                 >
                   <Icon color="black" name="twitter" size="big" link />
                 </a>
                 <a
                   href="https://github.com/iqbalrpambudi"
                   style={{ boxShadow: `none`, marginRight: `1em` }}
+                  title="Github"
                 >
                   <Icon color="black" name="github" size="big" link />
                 </a>

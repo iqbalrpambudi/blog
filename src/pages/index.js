@@ -4,7 +4,7 @@ import { Card, Grid, Image } from "semantic-ui-react"
 import "../style/card.css"
 import "../style/grid.css"
 import "../style/image.css"
-import Bio from "../components/bio"
+import Profile from "../components/profile"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -16,10 +16,12 @@ class BlogIndex extends React.Component {
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="All posts" />
-        <Bio />
+        <Profile />
+        <hr />
+        <h4>Latest Blog Post</h4>
         <Grid>
           <Grid.Row>
-            {posts.map(({ node }, index) => {
+            {posts.slice(0, 6).map(({ node }, index) => {
               const title = node.frontmatter.title || node.fields.slug
               const thumbnail =
                 node.frontmatter.featuredImage.childImageSharp.sizes.src

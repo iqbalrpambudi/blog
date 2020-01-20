@@ -56,7 +56,7 @@ const Bio = () => {
       />
       <p>
         Written by <strong>{author}</strong> who lives and study in Yogyakarta
-        building useful things.
+        building unuseful things.
         {` `}
         <a href={`https://twitter.com/${social.twitter}`}>
           You should follow him on Twitter
