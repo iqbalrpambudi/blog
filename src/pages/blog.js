@@ -24,19 +24,25 @@ class Blog extends React.Component {
 
             return (
               <Item key={index}>
-                <Item.Image size="medium" src={thumbnail} />
+                <Item.Image
+                  size="medium"
+                  src={thumbnail}
+                  style={{ marginBottom: 0 }}
+                />
 
                 <Item.Content>
                   <Item.Header>
-                    <h3 style={{ margin: `0.5rem auto`, color: `black` }}>
+                    <h3 style={{ margin: `0 auto`, color: `black` }}>
                       <Link to={node.fields.slug}>{title}</Link>
                     </h3>
                   </Item.Header>
+
                   <Item.Meta>{node.frontmatter.date}</Item.Meta>
+
                   <Item.Description>
                     {
                       <p
-                        style={{ font: `110%` }}
+                        style={{ font: `120%` }}
                         dangerouslySetInnerHTML={{
                           __html: node.frontmatter.description || node.excerpt,
                         }}

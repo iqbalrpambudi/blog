@@ -37,7 +37,7 @@ class BlogIndex extends React.Component {
                   >
                     <Image style={{ marginBottom: 0 }} src={thumbnail} />
                     <Card.Content>
-                      <h3 style={{ margin: 0 }}>
+                      <h3 style={{ margin: 0, lineHeight: `1.5` }}>
                         <Link to={node.fields.slug}>{title}</Link>
                       </h3>
                       <Card.Meta>
