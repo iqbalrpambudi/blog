@@ -11,10 +11,10 @@ class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
-    const { previous, next } = this.props.pageContext
     const profile = this.props.data.avatar.childImageSharp.fixed
     const author = this.props.data.site.siteMetadata.author
     const FeaturedName = post.frontmatter.featuredImage.name
+    const { previous, next } = this.props.pageContext
     const FeaturedImage =
       post.frontmatter.featuredImage.childImageSharp.resize.src
     const disqusShortname = "MyBlog"

@@ -2,7 +2,7 @@ import React from "react"
 import { Grid, Icon } from "semantic-ui-react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Images from "../../content/assets/hero-commute.gif"
+import Images from "../../content/assets/astronaut.gif"
 import "../style/icons.css"
 
 class Connect extends React.Component {
