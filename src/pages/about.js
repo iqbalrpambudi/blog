@@ -1,9 +1,10 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { Grid } from "semantic-ui-react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Images from "../../content/assets/animate.gif"
+import { Grid } from "semantic-ui-react"
+import "../style/grid.css"
 
 class About extends React.Component {
   render() {

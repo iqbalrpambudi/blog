@@ -3,7 +3,6 @@ import { graphql, Link } from "gatsby"
 import { Item } from "semantic-ui-react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import "../style/item.css"
 import "../style/Layout.scss"
 
 class Blog extends React.Component {
@@ -16,7 +15,6 @@ class Blog extends React.Component {
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="Blog Post" />
         <h3>Blog Post</h3>
-        <hr />
         <Item.Group>
           {posts.map(({ node }, index) => {
             const title = node.frontmatter.title || node.fields.slug
