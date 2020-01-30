@@ -4,6 +4,7 @@ import { Item } from "semantic-ui-react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import "../style/item.css"
+import "../style/Layout.scss"
 
 class Blog extends React.Component {
   render() {
@@ -16,23 +17,23 @@ class Blog extends React.Component {
         <SEO title="Blog Post" />
         <h3>Blog Post</h3>
         <hr />
-        <Item.Group divided>
-          {posts.slice(0, 6).map(({ node }, index) => {
+        <Item.Group>
+          {posts.map(({ node }, index) => {
             const title = node.frontmatter.title || node.fields.slug
             const thumbnail =
               node.frontmatter.featuredImage.childImageSharp.sizes.src
 
             return (
-              <Item key={index}>
+              <Item key={index} style={{boxShadow:`rgb(212, 212, 213) 0px 1px 25px 0px`}}>
                 <Item.Image
                   size="medium"
                   src={thumbnail}
-                  style={{ marginBottom: 0 }}
+                  className="im"
                 />
 
-                <Item.Content>
+                <Item.Content style={{padding:`1.25rem`}}>
                   <Item.Header>
-                    <h3 style={{ margin: `0 auto`, color: `black` }}>
+                    <h3 style={{marginTop:0,marginBottom:`0.5rem`,color: `black` }}>
                       <Link to={node.fields.slug}>{title}</Link>
                     </h3>
                   </Item.Header>

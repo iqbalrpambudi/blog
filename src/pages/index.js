@@ -1,9 +1,8 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-import { Card, Grid, Image } from "semantic-ui-react"
-import "../style/card.css"
-import "../style/grid.css"
+import { Item } from "semantic-ui-react"
 import "../style/image.css"
+import "../style/item.css"
 import Profile from "../components/profile"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -19,47 +18,48 @@ class BlogIndex extends React.Component {
         <Profile />
         <hr />
         <h4>Latest Blog Post</h4>
-        <Grid>
-          <Grid.Row>
+        <Item.Group>
+        {/* <Grid>
+          <Grid.Row> */}
             {posts.slice(0, 6).map(({ node }, index) => {
               const title = node.frontmatter.title || node.fields.slug
               const thumbnail =
                 node.frontmatter.featuredImage.childImageSharp.sizes.src
 
               return (
-                <Grid.Column mobile={16} computer={8} key={index}>
-                  <Card
-                    style={{
-                      marginBottom: `2.5rem`,
-                      width: `100%`,
-                      boxShadow: `0 1px 25px 0 #d4d4d5`,
-                    }}
-                  >
-                    <Image style={{ marginBottom: 0 }} src={thumbnail} />
-                    <Card.Content>
-                      <h3 style={{ margin: 0, lineHeight: `1.5` }}>
-                        <Link to={node.fields.slug}>{title}</Link>
-                      </h3>
-                      <Card.Meta>
-                        <span className="date">{node.frontmatter.date}</span>
-                      </Card.Meta>
-                      <Card.Description>
-                        {
-                          <p
-                            dangerouslySetInnerHTML={{
-                              __html:
-                                node.frontmatter.description || node.excerpt,
-                            }}
-                          />
-                        }
-                      </Card.Description>
-                    </Card.Content>
-                  </Card>
-                </Grid.Column>
+                <Item key={index} style={{boxShadow:`rgb(212, 212, 213) 0px 1px 25px 0px`}}>
+                <Item.Image
+                  size="medium"
+                  src={thumbnail}
+                  className="im"
+                />
+
+                <Item.Content style={{padding:`1.25rem`}}>
+                  <Item.Header>
+                    <h3 style={{marginTop:0,marginBottom:`0.5rem`,color: `black` }}>
+                      <Link to={node.fields.slug}>{title}</Link>
+                    </h3>
+                  </Item.Header>
+
+                  <Item.Meta>{node.frontmatter.date}</Item.Meta>
+
+                  <Item.Description>
+                    {
+                      <p
+                        style={{ font: `120%` }}
+                        dangerouslySetInnerHTML={{
+                          __html: node.frontmatter.description || node.excerpt,
+                        }}
+                      />
+                    }
+                  </Item.Description>
+                </Item.Content>
+              </Item>
               )
             })}
-          </Grid.Row>
-        </Grid>
+                    </Item.Group>
+          {/* </Grid.Row>
+        </Grid> */}
       </Layout>
     )
   }
