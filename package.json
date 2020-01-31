@@ -34,6 +34,7 @@
     "react-helmet": "^5.2.1",
     "react-scoped-styles": "^0.3.0",
     "react-typography": "^0.16.19",
+    "read-time-estimate": "0.0.2",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.88.2",
     "typeface-merriweather": "0.0.72",

@@ -1,11 +1,12 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import { Item } from "semantic-ui-react"
-import "../style/image.css"
-import "../style/item.css"
 import Profile from "../components/profile"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import "../style/image.css"
+import "../style/item.css"
+import "../style/Layout.scss"
 
 class BlogIndex extends React.Component {
   render() {
@@ -18,23 +19,21 @@ class BlogIndex extends React.Component {
         <Profile />
         <hr />
         <h4>Latest Blog Post</h4>
-        <Item.Group>
-        {/* <Grid>
-          <Grid.Row> */}
+        <Item.Group divided>
             {posts.slice(0, 6).map(({ node }, index) => {
               const title = node.frontmatter.title || node.fields.slug
               const thumbnail =
                 node.frontmatter.featuredImage.childImageSharp.sizes.src
 
               return (
-                <Item key={index} style={{boxShadow:`rgb(212, 212, 213) 0px 1px 25px 0px`}}>
+                <Item key={index} className="im">
                 <Item.Image
                   size="medium"
                   src={thumbnail}
-                  className="im"
+                  
                 />
 
-                <Item.Content style={{padding:`1.25rem`}}>
+                <Item.Content>
                   <Item.Header>
                     <h3 style={{marginTop:0,marginBottom:`0.5rem`,color: `black` }}>
                       <Link to={node.fields.slug}>{title}</Link>
@@ -58,8 +57,6 @@ class BlogIndex extends React.Component {
               )
             })}
                     </Item.Group>
-          {/* </Grid.Row>
-        </Grid> */}
       </Layout>
     )
   }

@@ -7,6 +7,7 @@ import Layout from "../components/layout"
 import Bio from "../components/bio"
 import "../style/blogLayout.scss"
 
+
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
@@ -23,7 +24,7 @@ class BlogPostTemplate extends React.Component {
       identifier: post.id,
       title: post.frontmatter.title,
     }
-
+  
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
@@ -112,7 +113,7 @@ export const pageQuery = graphql`
         description
         featuredImage {
           childImageSharp {
-            resize(width: 912, height: 480) {
+            resize(width: 912, height: 450) {
               src
             }
           }
