@@ -42,8 +42,6 @@ Linux ni kebal sama virus, namun tak menutup kemungkinan linux juga dapat diinfe
 Intinya hati-hati di internet...
 
 ### Lebih Produktif
-Selama menggunakan linux saya jadi lebih produktif karena linux jarang ada game dan hiburan 🤣. Saya jadi lebih fokus ke kerjaan.
+Selama menggunakan linux saya jadi lebih produktif karena linux jarang ada game dan hiburan. Saya jadi lebih fokus ke kerjaan.
 
-Dulu saya suka main game terutama game online yang dulu sempat jadi primadona pada masanya, apalagi kalo bukan Lost Saga 🤣. Yoi, saya dulu anak warnet sama seperti kalian. 
-
-Pulang sekolah sewa biling paket 2 jam + ale-ale 🤣. Nikmat yang begitu luar biasa pada masa itu 🤣.
+Dulu saya suka main game terutama game online yang dulu sempat ngehits pada masanya. Namun semua berubah ketika saya mulai beralih ke linux. Saya udah mulai jarang main game.

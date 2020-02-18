@@ -6,7 +6,7 @@ import SEO from "../components/seo"
 import Layout from "../components/layout"
 import Bio from "../components/bio"
 import "../style/blogLayout.scss"
-
+import NoImage from '../../content/assets/no-images.jpg'
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -17,7 +17,7 @@ class BlogPostTemplate extends React.Component {
     const FeaturedName = post.frontmatter.featuredImage.name
     const { previous, next } = this.props.pageContext
     const FeaturedImage =
-      post.frontmatter.featuredImage.childImageSharp.resize.src
+      post.frontmatter.featuredImage.childImageSharp.resize.src || NoImage
     const disqusShortname = "MyBlog"
     const disqusConfig = {
       url: this.props.location.href,

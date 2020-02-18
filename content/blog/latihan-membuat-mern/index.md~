@@ -1,0 +1,63 @@
+---
+title: "Latihan Membuat Aplikasi MERN"
+date: "2020-02-14T22:12:03.284Z"
+featuredImage: "./thumbnail.jpeg"
+---
+
+Belakangan ini saya belajar tentang Javascript. Salah satunya saya belajar tentang pembuatan REST API menggunakan Express dan MongoDB.
+
+Sebelumnya saya juga sudah sedikit belajar tentang ReactJS. Nah ini saatnya menggabungkan antara Front End dan Backend. Jadilah MERN (MongoDB, Express, React, NodeJS).
+
+## Mengenal Aplikasi MERN
+
+**1. MongoDB**<br/>
+MongoDB adalah salahsatu database yang berjenis NoSQL dan menggunakan data berjenis JSON. Untuk dokumentasi dan cara instalasinya dapat mengunjungi langsung pada website official [MongoDB](https://mongodb.com)
+
+**2. Express**<br/>
+Express merupakan framework populer yang berjalan diatas NodeJS. Express adalah framework untuk membangun berbagai macam aplikasi backend.
+
+**3. React**<br/>
+Library Javascript yang digunakan untuk membangun User Interface dan yang nantinya akan mengolah response data yang diberikan oleh REST API kita
+
+**4. NodeJS**<br/>
+Javascript runtime environtment. Agar javascript dapat berjalan diluar browser.
+
+Ada juga yang menggunakan Angular untuk Front Endnya *"MEAN"* (MongoDB, Express, Angular, NodeJS). Tapi disini saya menggunakan React untuk Front Endnya :).
+
+## Arsitektur MERN
+Dalam aplikasi MERN ini kita akan membuat sebuah Front End dengan ReactJS dan sebuah server REST API. Agar lebih mudah memahaminya perhatikan gambar berikut:
+<img src="./thumbnail.jpeg" alt="figure 1">
+Disitu terlihat React sebagai client yang akan melakukan _HTTP Request_ ke server REST API kita. Selanjutnya REST API akan menangani request dari React melalui endpoint. Lalu REST API akan memberikan response sesuai request dari client. 
+
+### HTTP Method pada REST API
+Untuk melakukan operasi CRUD, REST API menggunakan HTTP method sebagai protokol komunikasinya. Jadi ketika akan akan melakukan sebuah operasi CRUD maka kita akan melakukan sebuah HTTP request. Berikut adalah beberapa HTTP method yang sering digunakan :
+
+**1. GET**<br/>
+GET digunakan untuk membaca sebuah data. Metode ini hanya dapat membaca data saja dan tidak dapat mengubah atau menambahkan sebuah data. Pada SQL ini lebih dikenal sebagai query SELECT yang digunakan untuk membaca sebuah data. Method GET akan memberikan status kode `200 ok` apabila berhasil.
+
+**2. POST**<br/>
+POST digunakan untuk menmabahkan sebuah data. Pada SQL kita mengenal query INSERT untuk melakukan insert data ke dabase. 
+
+
+**3. PUT**<br/>
+PUT digunakan untuk update sebuah data yang pada SQL disebut query UPDATE. PUT membutuhkan sebuah parameter ID untuk memilih data mana yang akan diupdate. 
+
+**4. DELETE**<br/>
+Sudah pasti tau kan yang satu ini. DELETE digunakan untuk menghapus data. DELETE juga memerlukan ID sebagai parameter untuk menentukan data yang akan dihapus
+
+## Setup Project
+>Sebelum membangun aplikasi MERN kita, pastikan PC/Laptop kamu sudah terinstall NodeJS + NPM.
+
+Oke, pertama-tama kita buat project React terlebih dahulu menggunakan `create-react-app`. Disini saya memberi nama aplikasi saya `mern`
+```
+$ npx create-react-app mern
+```
+<br/>Setelah itu masuk ke folder `mern`
+```
+$ cd mern
+```
+<br/>Kita membutuhkan beberapa module seperti bootstrap untuk CSS stylingnya dan Axios untuk melakukan HTTP Request ke server REST API kita
+```
+$ npm install react-bootstrap bootstrap
+$ npm install axios
+```
