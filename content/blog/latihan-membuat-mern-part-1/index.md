@@ -27,10 +27,10 @@ Ada juga yang menggunakan Angular untuk Front Endnya *"MEAN"* (MongoDB, Express,
 ## Arsitektur MERN
 Dalam aplikasi MERN ini kita akan membuat sebuah Front End dengan ReactJS dan sebuah server REST API. Agar lebih mudah memahaminya perhatikan gambar berikut:
 
-<img src="./fig1.png" alt="figure 1">
+<img src="./fig1.png" alt="figure 1"/>
 <center><small>Fig 1 : Struktur MERN</small></center>
 
-Disitu terlihat React sebagai client yang akan melakukan _HTTP Request_ ke server REST API kita. Selanjutnya REST API akan menangani request dari React melalui endpoint. Lalu REST API akan memberikan response sesuai request dari client. 
+<br/>Disitu terlihat React sebagai client yang akan melakukan _HTTP Request_ ke server REST API kita. Selanjutnya REST API akan menangani request dari React melalui endpoint. Lalu REST API akan memberikan response sesuai request dari client. 
 
 ### HTTP Method pada REST API
 Untuk melakukan operasi CRUD, REST API menggunakan HTTP method sebagai protokol komunikasinya. Jadi ketika akan akan melakukan sebuah operasi CRUD maka kita akan melakukan sebuah HTTP request. Berikut adalah beberapa HTTP method yang sering digunakan :
@@ -48,10 +48,12 @@ PUT digunakan untuk update sebuah data yang pada SQL disebut query UPDATE. PUT m
 **4. DELETE**<br/>
 Sudah pasti tau kan yang satu ini. DELETE digunakan untuk menghapus data. DELETE juga memerlukan ID sebagai parameter untuk menentukan data yang akan dihapus
 
-## Membangun Front End
->Sebelum membangun aplikasi MERN kita, pastikan PC/Laptop kamu sudah terinstall NodeJS + NPM.
+## Setup Project
+>Sebelum membangun aplikasi MERN kita, pastikan PC/Laptop kamu sudah terinstall NodeJS + NPM dan Teks editor favorit kalian. Disini saya menggunakan VSCode. 
 
-Oke, disini kita akan mencoba membuat sebuah aplikasi pengelolaan data siswa sederhana. Pertama-tama kita akan membuat bagian Front End terlebih dahulu menggunakan React. Buat project React terlebih dahulu menggunakan `create-react-app`. Disini saya memberi nama aplikasi saya `mern`
+Oke, disini kita akan mencoba membuat sebuah aplikasi pengelolaan data siswa sederhana yang terdiri dari Create Student, Edit Student dan Delete Student.
+
+Pertama-tama kita akan meyiapkan bagian Front End terlebih dahulu menggunakan React. Buat project React terlebih dahulu menggunakan `create-react-app`. Disini saya memberi nama aplikasi saya `mern`. Buka terminal dan ketikan perintah berikut:
 ```
 $ npx create-react-app mern
 ```
@@ -59,21 +61,87 @@ $ npx create-react-app mern
 ```
 $ cd mern
 ```
-<br/>Lalu install beberapa package dibawah ini
+
+<br/>Lalu buka project `mern` dengan teks editor maka struktur project kita akan terlihat sebagai berikut :
+
+<img src="./fig3.png" alt="figure 2"/>
+<center><small>Fig 2 : Struktur project</small></center>
+
+
+## Membangun Komponen Dasar
+Selanjutnya install beberapa module berikut. Buka terminal atau kalau kamu pakai VSCode tekan `CTRL + SHIFT + ~` untuk membuka terminal VSCode dan ketikan perintah:
 ```
 $ npm install react-bootstrap bootstrap
-$ npm install axios
 $ npm install react-router-dom
 ```
+<br/>
 
-**1. react-bootstrap** : digunakan untuk styling agar tampilan halaman web jadi lebih bagus<br/>
+**1. react-bootstrap** : digunakan untuk styling agar tampilan halaman web jadi lebih bagus
+**2. react-router-dom** : digunakan untuk menangani routing URL. Ini seperti link untuk berganti ke halaman lain atau komponen lain.
 
-**2. axios** : sebuah module yang digunakan untuk melakukan HTTP request ke server REST API untuk mendapatkan data<br/>
+<br/>Buat sebuah folder bernama `components` didalam folder `src` dan buat 3 file :
 
-**3. react-router-dom** : digunakan untuk menangani routing URL. Ini seperti link untuk berganti ke halaman lain atau komponen lain.
+**1. createStudent.js**<br/>
+**2. editStudent.js**<br/>
+**3. studentList.js**<br/>
 
+<img src="./fig4.png" alt="Fig 3">
+<center><small>Fig 2 : Struktur project</small></center>
 
-<br/>Sekarang buka file `App.js` dan hapus seluruh isinya. Kemudian import React, bootstrap dan beberapa komponen dari `react-router-dom`
+<br/>Isikan file `createStudent.js` dengan kode berikut
+```
+import React, { Component } from 'react';
+
+class CreateStudent extends Component {
+  render() {
+    return (
+      <div>
+        Halo ini dari halaman Create Student!
+      </div>
+    );
+  }
+}
+
+export default CreateStudent;
+```
+
+<br/>Kemudian buka file `editStudent.js` dan isi kode berikut:
+```
+import React, { Component } from 'react';
+
+class EditStudent extends Component {
+  render() {
+    return (
+      <div>
+        Halo ini dari halaman Edit Student!
+      </div>
+    );
+  }
+}
+
+export default EditStudent;
+```
+
+<br/>Kemudian file `studentList.js` dan isikan kode berikut:
+```
+import React, { Component } from 'react';
+
+class StudentList extends Component {
+  render() {
+    return (
+      <div>
+        Halo ini dari halaman Student List!
+      </div>
+    );
+  }
+}
+
+export default StudentList;
+```
+
+<br/>Oke, sekarang kita sudah mempunyai 3 komponen yaitu createStudent, editStudent dan studentList. Sekarang kita akan menggabungkan ketiga komponen tersebut.
+
+Buka file `App.js` dan hapus seluruh isinya. Kemudian import React, bootstrap dan beberapa komponen dari `react-router-dom`
 ```
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
@@ -86,9 +154,15 @@ import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 ```
 
-<br/>Lalu buatlah sebuah function `App()`. dalam function `App()` buat `<Router>` sebagai pembungkusnya dan didalam <Router>. Jangan lupa tambahkan export agar komponen ini dapat digunakan di komponen lain. jadinya akan seperti ini
+<br/>Jangan lupa import ketiga komponen yang sudah kita buat tadi
 ```
-....
+import CreateStudent from "./components/createStudent";
+import EditStudent from "./components/editStudent";
+import StudentList from "./components/studentList";
+```
+
+<br/>Buat sebuah function `App()` sebagai berikut
+```
 function App() {
   return (<Router>
         ...
@@ -162,6 +236,10 @@ import Container from "react-bootstrap/Container";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import CreateStudent from "./components/createStudent";
+import EditStudent from "./components/editStudent";
+import StudentList from "./components/studentList";
+
 function App() {
   return (
     <Router>
@@ -207,70 +285,11 @@ function App() {
 
 export default App;
 ```
-<br/>Ketika dijalankan maka masih terdapat error karena pada `<Route` masih terdapat komponen yang belum dibuat yaitu `CreateStudent`, `EditStudent` dan `StudentList`. Maka tugas kita selanjutnya yaitu membuat ketiga komponen tersebut.
-
-Buat sebuah folder bernama `components` didalam folder `src` dan buat 3 file. File pertama beri nama `createStudent.js` dan isi dengan kode sederhana berikut:
-```
-import React, { Component } from 'react';
-
-class CreateStudent extends Component {
-  render() {
-    return (
-      <div>
-        Halo ini dari halaman Create Student!
-      </div>
-    );
-  }
-}
-
-export default CreateStudent;
-```
-
-<br/>File kedua beri nama `editStudent.js` dan isi kode berikut:
-```
-import React, { Component } from 'react';
-
-class EditStudent extends Component {
-  render() {
-    return (
-      <div>
-        Halo ini dari halaman Edit Student!
-      </div>
-    );
-  }
-}
-
-export default EditStudent;
-```
-
-<br/>File ketiga beri nama `studentList.js` dan isikan kode berikut:
-```
-import React, { Component } from 'react';
-
-class StudentList extends Component {
-  render() {
-    return (
-      <div>
-        Halo ini dari halaman Student List!
-      </div>
-    );
-  }
-}
-
-export default StudentList;
-```
-
-<br/> Sekarang balik lagi ke file `App.js` dan import ketiga komponen yang sudah kita buat tadi
-```
-import CreateStudent from "./components/createStudent";
-import EditStudent from "./components/editStudent";
-import StudentList from "./components/studentList";
-```
 
 <br/>Simpan dan jalankan development server dengan mengetikan perintah `npm start` pada terminal. Pastikan kamu berada di folder project kamu ya. Kalau masih gagal coba tambahkan `sudo`.
 
-<img src="./fig2.png" alt="Fig2"/>
-<center><small>Fig 2 : Hasilnya</small></center>
+<img src="./fig2.png" alt="Figure 3"/>
+<center><small>Fig 3 : Hasilnya</small></center>
 
 Oke part 1 sampai disini dulu, latihan selanjutnya kita akan membangun komponen dari `createStudent.js` `editStudent.js` dan `studentList.js` :D..
 
