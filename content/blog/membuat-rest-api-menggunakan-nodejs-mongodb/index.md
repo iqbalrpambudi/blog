@@ -101,7 +101,7 @@ Content-Length: 124
 
 
 ## Membangun REST API
-Oke setelah mengetahui tentang apa itu REST API maka sekarang kita akan lanjut ke pembuatan REST API. Sebelum itu pastikan terlebih dahulu kalian sudah menginstall NodeJS+NPM. Disini kita akan mencoba membuat sebuah REST API sederhana berupa CRUD data mahasiswa. 
+Oke setelah mengetahui tentang apa itu REST API maka sekarang kita akan lanjut ke pembuatan REST API. Sebelum itu pastikan terlebih dahulu kalian sudah menginstall NodeJS+NPM. Disini kita akan mencoba membuat sebuah REST API sederhana berupa CRUD data user. 
 
 ### Setup Project
 >Pastikan PC/Laptop kalian sudah terinstall NodeJS+NPM, MongoDB dan Postman.
@@ -109,9 +109,9 @@ Oke setelah mengetahui tentang apa itu REST API maka sekarang kita akan lanjut k
 Buat sebuah folder dengan nama `restapi` dan masuk ke folder tersebut. Kita akan menginstall beberapa module :
 
 - Express : Framework NodeJS
-- Body Parser : Middleware untuk parsing data
-- CORS : Middleware
-- Mongoose : driver MongoDB
+- Body Parser : Middleware untuk parsing data otomatis
+- CORS : Middleware Connect pada framework Express
+- Mongoose : Module untuk menghubungkan NodeJS dan MongoDB
 
 ```
 npm install express
