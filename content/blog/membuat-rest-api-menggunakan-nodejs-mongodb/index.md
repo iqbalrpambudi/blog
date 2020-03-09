@@ -110,13 +110,11 @@ Buat sebuah folder dengan nama `restapi` dan masuk ke folder tersebut. Kita akan
 
 - Express : Framework NodeJS
 - Body Parser : Middleware untuk parsing data otomatis
-- CORS : Middleware Connect pada framework Express
 - Mongoose : Module untuk menghubungkan NodeJS dan MongoDB
 
 ```
 npm install express
 npm install body-parser
-npm install cors
 npm install mongoose
 ```
 Jangan lupa jalankan `npm init` untuk menginisiasikan project kalian dan menghasilkan `package.json` dan bila sudah menginstall module diatas maka `package.json` akan terlihat sebagai berikut
@@ -128,7 +126,6 @@ Jangan lupa jalankan `npm init` untuk menginisiasikan project kalian dan menghas
   "main": "index.js",
   "dependencies": {
     "body-parser": "^1.19.0",
-    "cors": "^2.8.5",
     "express": "^4.17.1",
     "mongoose": "^5.9.2"
   },
@@ -349,7 +346,7 @@ mongoose.connect(MONGODB_URI, {
 )
 ```
 
-<br/>Okey, sekarang kita akan mendefinisikan express kita dan menggunakan module body parser, cors, dan userRoute yang sudah kita import tadi
+<br/>Okey, sekarang kita akan mendefinisikan express kita dan menggunakan module body parser dan userRoute yang sudah kita import tadi
 
 ```
 const app = express();
@@ -358,7 +355,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true
 }));
-app.use(cors());
 app.use('/api', userRoute)
 ```
 
