@@ -6,6 +6,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import "../style/image.css"
 import "../style/item.css"
+import "../style/card.css"
 import "../style/Layout.scss"
 
 class BlogIndex extends React.Component {

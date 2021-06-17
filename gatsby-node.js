@@ -5,6 +5,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   const blogPost = path.resolve(`./src/templates/blog-post.js`)
+  const portfolioPost = path.resolve(`./src/templates/portfolio-post.js`)
   const result = await graphql(
     `
       {
@@ -19,6 +20,7 @@ exports.createPages = async ({ graphql, actions }) => {
               }
               frontmatter {
                 title
+                type
               }
             }
           }
@@ -38,15 +40,25 @@ exports.createPages = async ({ graphql, actions }) => {
     const previous = index === posts.length - 1 ? null : posts[index + 1].node
     const next = index === 0 ? null : posts[index - 1].node
 
-    createPage({
-      path: post.node.fields.slug,
-      component: blogPost,
-      context: {
-        slug: post.node.fields.slug,
-        previous,
-        next,
-      },
-    })
+    if (post.node.frontmatter.type === "blog") {
+      createPage({
+        path: post.node.fields.slug,
+        component: blogPost,
+        context: {
+          slug: post.node.fields.slug,
+          previous,
+          next,
+        },
+      })
+    } else {
+      createPage({
+        path: post.node.fields.slug,
+        component: portfolioPost,
+        context: {
+          slug: post.node.fields.slug,
+        },
+      })
+    }
   })
 }
 

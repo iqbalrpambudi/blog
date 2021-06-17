@@ -2,6 +2,7 @@
 title: Mengapa Linux
 date: "2020-01-29T22:12:03.284Z"
 featuredImage: "./thumbnail.png"
+type: "blog"
 ---
 
 Dulu masih teringat waktu pertama kali menggunakan linux. Waktu itu saat kelas 2 SMK semua kelas diwajibkan menginstall sistem operasi linux. Kala itu kami diberikan file ISO Debian 7 beserta repository nya dengan total file mencapai 12GB an. 

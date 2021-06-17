@@ -2,6 +2,7 @@
 title: "Latihan Membuat Aplikasi MERN Part 1"
 date: "2020-02-14T22:12:03.284Z"
 featuredImage: "./thumbnail.jpeg"
+type: "blog"
 ---
 
 Halo, Belakangan ini saya belajar tentang Javascript. Salah satunya saya belajar tentang pembuatan REST API menggunakan Express dan MongoDB.

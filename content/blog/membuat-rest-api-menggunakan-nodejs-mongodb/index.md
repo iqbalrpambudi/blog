@@ -2,6 +2,7 @@
 title: Membuat REST API menggunakan NodeJS dan MongoDB
 date: "2020-03-01T22:12:03.284Z"
 featuredImage: "./thumbnail.jpg"
+type: "blog"
 ---
 
 REST API adalah gabungan dari kata **REST** (_Representional State Transfer_) dan **API** (_Application Programming Interface_). Sedangkan pengertian dari REST API itu sendiri adalah sebuah arsitektur dalam sebuah komunikasi yang menggunakan protokol HTTP untuk melakukan pertukaran data.

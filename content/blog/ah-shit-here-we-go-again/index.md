@@ -3,6 +3,7 @@ title: Ah Shit, Here We Go Again
 date: "2020-01-20T22:40:32.169Z"
 description: This is a custom description for SEO and Open Graph purposes, rather than the default generated excerpt. Simply add a description field to the frontmatter.
 featuredImage: "./cj.jpg"
+type: "blog"
 ---
 
 Did you know this meme?.

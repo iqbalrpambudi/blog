@@ -1,7 +1,8 @@
 ---
-title: Analog is not Dead
-date: "2021-01-11T22:12:03.284Z"
+title: Kamera Analog
+date: "2021-02-11T22:12:03.284Z"
 featuredImage: "./thumbnail.jpg"
+type: "blog"
 ---
 
 Beberapa waktu lalu saya membeli kamera analog dari Instagram. Saya membeli kamera tersebut karena terlihat hmmmm "antik dan klasik". 

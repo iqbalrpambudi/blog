@@ -2,6 +2,7 @@
 title: API Request Menggunakan React & Axios
 date: "2020-03-09T22:12:03.284Z"
 featuredImage: "./thumbnail.jpg"
+type: "blog"
 ---
 
 Kali ini kita akan membuat sebuah API Request menggunakan ReactJS dan Axios. Apa itu Axios?. Axios adalah library untuk melakukan HTTP Request yang akhir-akhir ini lagi populer.

@@ -2,6 +2,7 @@
 title: Salted Eggs!
 date: "2020-01-06T23:46:37.121Z"
 featuredImage: "./salty_egg.jpg"
+type: "blog"
 ---
 
 Wow! I love blogging so much already.

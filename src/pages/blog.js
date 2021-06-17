@@ -4,12 +4,12 @@ import { Item } from "semantic-ui-react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-
 class Blog extends React.Component {
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
     const posts = data.allMarkdownRemark.edges
+    
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -19,11 +19,20 @@ class Blog extends React.Component {
           {posts.map(({ node }, index) => {
             const title = node.frontmatter.title || node.fields.slug
             return (
-              <Item key={index} style={{boxShadow:`rgb(212, 212, 213) 0px 1px 25px 0px`}}>
-
-                <Item.Content style={{padding:`1.25rem`}}>
+              <Item
+                key={index}
+                style={{ boxShadow: `rgb(212 212 213 / 41%) 0px 1px 25px 0px` }}
+              >
+                <Item.Content style={{ padding: `1.25rem` }}>
                   <Item.Header>
-                    <h3 style={{marginTop:0,marginBottom:`0.5rem`,color: `black`,lineHeight:1.35 }}>
+                    <h3
+                      style={{
+                        marginTop: 0,
+                        marginBottom: `0.5rem`,
+                        color: `black`,
+                        lineHeight: 1.35,
+                      }}
+                    >
                       <Link to={node.fields.slug}>{title}</Link>
                     </h3>
                   </Item.Header>

@@ -15,6 +15,9 @@ class Layout extends React.Component {
           <Link to={"/blog"} className="item">
             Blog
           </Link>
+          <Link to={"/portfolio"} className="item">
+            Portfolio
+          </Link>
           <Link to={"/about"} className="item">
             About
           </Link>

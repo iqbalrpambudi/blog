@@ -2,6 +2,7 @@
 title: Linux Rasa Mac OS
 date: "2020-02-01T22:12:03.284Z"
 featuredImage: "./thumbnail.png"
+type: "blog"
 ---
 
 Ini sedikit customisasi pada linux saya, biar mirip sama macOS 🤣. Sudah setahun saya pake Elementary OS yang sekarang sudah versi 5.1 dengan codename _Hera_.

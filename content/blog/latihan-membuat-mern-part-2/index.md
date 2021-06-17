@@ -2,6 +2,7 @@
 title: "Latihan Membuat Aplikasi MERN Part 2"
 date: "2020-02-20T22:12:03.284Z"
 featuredImage: "./thumbnail.jpeg"
+type: "blog"
 ---
 
 Melanjutkan dari latihan sebelumnya yaitu [Latihan Membuat Aplikasi MERN Part 1](http://me.iqbalpambudi.com/latihan-membuat-mern-part-1). Sebelumnya kita sudah membuat komponen awal dari aplikasi berupa link untuk beralih dari halaman satu ke halaman lain menggunakan `react-router-dom`. Di latihan kali ini kita akan membangun komponen dari `createStudent.js` dan `studentList.js` dan membuat input form.
