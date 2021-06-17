@@ -14,8 +14,7 @@ class Portfolio extends React.Component {
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="Portfolio" />
         <h3>Portfolio</h3>
-        <Grid columns={2}>
-          <Grid.Row>
+        <Grid>
             {posts
               .filter(({ node }) => node.frontmatter.type === "portfolio")
               .map(({ node }, index) => {
@@ -24,7 +23,7 @@ class Portfolio extends React.Component {
                 const slug = node.fields.slug
 
                 return (
-                  <Grid.Column key={index}>
+                  <Grid.Column key={index} mobile={16} tablet={8} computer={8}>
                     <Card
                       fluid
                       as={Link}
@@ -36,47 +35,6 @@ class Portfolio extends React.Component {
                   </Grid.Column>
                 )
               })}
-          </Grid.Row>
-          {/* {posts
-            .filter(({ node }) => node.frontmatter.type === "portfolio")
-            .map(({ node }, index) => {
-              const title = node.frontmatter.title || node.fields.slug
-              return (
-                <Item
-                  key={index}
-                  style={{ boxShadow: `rgb(212, 212, 213) 0px 1px 25px 0px` }}
-                >
-                  <Item.Content style={{ padding: `1.25rem` }}>
-                    <Item.Header>
-                      <h3
-                        style={{
-                          marginTop: 0,
-                          marginBottom: `0.5rem`,
-                          color: `black`,
-                          lineHeight: 1.35,
-                        }}
-                      >
-                        <Link to={node.fields.slug}>{title}</Link>
-                      </h3>
-                    </Item.Header>
-
-                    <Item.Meta>{node.frontmatter.date}</Item.Meta>
-
-                    <Item.Description>
-                      {
-                        <p
-                          style={{ font: `120%` }}
-                          dangerouslySetInnerHTML={{
-                            __html:
-                              node.frontmatter.description || node.excerpt,
-                          }}
-                        />
-                      }
-                    </Item.Description>
-                  </Item.Content>
-                </Item>
-              )
-            })} */}
         </Grid>
       </Layout>
     )

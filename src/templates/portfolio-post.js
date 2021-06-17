@@ -35,7 +35,7 @@ class PortfolioPostTemplate extends React.Component {
               </div>
             </div>
           </header>
-          <blockquote style={{backgroundColor:`#f5f5f5`, paddingTop:`1.42188rem`,paddingBottom:`1.42188rem`}}>
+          <blockquote style={{backgroundColor:`#f5f5f5`, paddingTop:`1.42188rem`,paddingBottom:`1.42188rem`,marginRight:`-1.75rem`,marginTop:`1.75rem`}}>
             <p>Version : {version}</p>
             <p>Status : {status}</p>
             <p>Editor : {editor}</p>
